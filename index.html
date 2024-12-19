@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lückentext: Erneuerbare Energien in Deutschland</title>
+    <link rel="manifest" href="manifest.json">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+        }
+        input {
+            padding: 5px;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .lueckentext {
+            margin-top: 20px;
+        }
+        .correct {
+            background-color: #d4edda;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+        }
+    </style>
+    <script>
+        function checkAnswers() {
+            const answers = [
+                "erneuerbare Energien", "Windenergie", "Solarenergie", "Geothermie", "Kohle",
+                "Erdöl", "Netz", "Energiespeicher", "Wasserkraftwerke (Pumpspeicherkraftwerke)", "Dunkelflaute",
+                "Onshore", "Offshore", "Elektromobilität", "500", "CO₂-Emissionen",
+                "Siemens Mireo Plus H", "Diesel", "Mercedes-Benz eCitaro", "Abgasfreiheit", "Erneuerbaren",
+                "Mercedes-Benz GenH2 Truck", "1043", "Fern", "Klimawandels"
+            ];
+
+            let score = 0;
+
+            for (let i = 1; i <= 24; i++) {
+                const input = document.getElementById(`input${i}`);
+                if (input.value === answers[i - 1]) {
+                    input.classList.add('correct');
+                    input.classList.remove('incorrect');
+                    score++;
+                } else {
+                    input.classList.add('incorrect');
+                    input.classList.remove('correct');
+                }
+                // Disable input fields after submission
+                input.disabled = true;
+            }
+
+            let grade;
+            if (score >= 22) {
+                grade = 1;
+            } else if (score >= 18) {
+                grade = 2;
+            } else if (score >= 14) {
+                grade = 3;
+            } else if (score >= 10) {
+                grade = 4;
+            } else if (score >= 6) {
+                grade = 5;
+            } else {
+                grade = 6;
+            }
+
+            // Displaying the correct answers, score, and grade
+            const solutionDiv = document.getElementById('solutions');
+            solutionDiv.innerHTML = '<h2>Lösungen</h2><ol>' + answers.map(ans => `<li>${ans}</li>`).join('') + '</ol>';
+            solutionDiv.innerHTML += `<p><strong>Punkte: ${score} von 24</strong></p>`;
+            solutionDiv.innerHTML += `<p><strong>Note: ${grade}</strong></p>`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Erneuerbare Energien in Deutschland</h1>
+    <p>Deutschland setzt verstärkt auf die Nutzung von <input type="text" id="input1" placeholder="(1)">, um den Energiebedarf des Landes zu decken und das Klima zu schützen. Eine der wichtigsten Energiequellen ist <input type="text" id="input2" placeholder="(2)">, die sowohl an Land als auch auf See genutzt wird. Ebenso spielt die <input type="text" id="input3" placeholder="(3)"> eine bedeutende Rolle, insbesondere durch Photovoltaikanlagen auf Dächern und in großen Solarparks. Zusätzlich wird auch die <input type="text" id="input4" placeholder="(4)"> zunehmend genutzt, besonders in Regionen mit geologischen Voraussetzungen.</p>
+    <p>Durch die Förderung und den Ausbau dieser Technologien soll auch die Abhängigkeit von fossilen Brennstoffen wie <input type="text" id="input5" placeholder="(5)"> und <input type="text" id="input6" placeholder="(6)"> verringert werden. Die Regierung unterstützt zudem den Ausbau der <input type="text" id="input7" placeholder="(7)">-Infrastruktur, um die Umverteilung von erneuerbaren Energien in ganz Deutschland effizienter zu gestalten.</p>
+    <p>Darüber hinaus spielen <input type="text" id="input8" placeholder="(8)"> und <input type="text" id="input9" placeholder="(9)"> eine entscheidende Rolle bei der Speicherung der erzeugten Energie, um diese auch bei <input type="text" id="input10" placeholder="(10)"> nutzen zu können.</p>
+    <p>Die Windenergie wird sowohl durch <input type="text" id="input11" placeholder="(11)">- als auch <input type="text" id="input12" placeholder="(12)">-Windparks erzeugt. Diese Windparks nutzen die Windkraft, um große Mengen an sauberer Energie zu produzieren.</p>
+    <p>Die Nutzung von <input type="text" id="input13" placeholder="(13)"> gewinnt zunehmend an Bedeutung, um den Transportsektor umweltfreundlicher zu gestalten. E-Lkws, wie der Mercedes-Benz eActros 600, haben eine Reichweite von bis zu <input type="text" id="input14" placeholder="(14)"> Kilometern und tragen zur Reduzierung der <input type="text" id="input15" placeholder="(15)"> bei.</p>
+    <p>Wasserstoff-Züge, wie der <input type="text" id="input16" placeholder="(16)">, bieten eine energieeffiziente Alternative zum traditionellen Schienenverkehr, bei welchem noch keine Oberleitungen vorhanden sind und die Züge z.B. mit <input type="text" id="input17" placeholder="(17)"> fahren. Ebenso bieten E-Busse, wie der <input type="text" id="input18" placeholder="(18)">, eine umweltfreundliche Lösung für den öffentlichen Nahverkehr. Diese Busse zeichnen sich durch ihre <input type="text" id="input19" placeholder="(19)"> und die Fähigkeit zur Nutzung von <input type="text" id="input20" placeholder="(20)"> Energien aus.</p>
+    <p>Eine weitere innovative Technologie sind Wasserstoff-Lkws, wie der <input type="text" id="input21" placeholder="(21)">. Die Reichweite von Wasserstoff-Lkws kann bis zu <input type="text" id="input22" placeholder="(22)"> Kilometer betragen, was sie besonders für den <input type="text" id="input23" placeholder="(23)">-Verkehr geeignet macht.</p>
+    <p>Durch diese Maßnahmen will Deutschland einen wichtigen Beitrag zur Bekämpfung des <input type="text" id="input24" placeholder="(24)"> leisten.</p>
+    <button onclick="checkAnswers()">Abgeben</button>
+    <div id="solutions"></div>
+</body>
+</html>
